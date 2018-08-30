@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">铁窗杯专用抽签</string>
+    <string name="draw_lots">开始抽签</string>
+    <string name="add_people">添加选手</string>
+    <string name="error">不要乱搞，老哥</string>
+    <string name="final_result">抽签结果</string>
+</resources>

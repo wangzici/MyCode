@@ -1,1 +1,1 @@
-include ':app', ':myedittext'
+include ':app', ':myedittext', ':drawlots'
