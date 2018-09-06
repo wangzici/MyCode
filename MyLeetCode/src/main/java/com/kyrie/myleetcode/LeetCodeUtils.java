@@ -27,4 +27,56 @@ public class LeetCodeUtils {
         }
         return nums;
     }
+
+    public static String leetcode334(String s) {
+        char[] arrays = s.toCharArray();
+        final int length = arrays.length;
+        for(int i=0; i < length/2 ; i++){
+            char temp = arrays[i];
+            arrays[i] = arrays[length - i - 1];
+            arrays[length - i - 1] = temp;
+        }
+        return new String(arrays);
+    }
+
+    public static int leetcode7(int x) {
+        //solution 1
+        /*String s = x + "";
+        char[] arrays = s.toCharArray();
+        final int length = arrays.length;
+        int i = 0;
+        int j = length - 1;
+        while (i < j){
+            if (i == 0 && arrays[i] == '-') {
+                i++;
+                continue;
+            }
+            char temp = arrays[i];
+            arrays[i] = arrays[j];
+            arrays[j] = temp;
+            i++;
+            j--;
+        }
+        try {
+            return Integer.parseInt(new String(arrays));
+        } catch (NumberFormatException e) {
+            return 0;
+        }*/
+
+        //solution 2
+        int result = 0;
+        int next = x;
+        int pop;
+        do {
+            pop = next % 10;
+            next = next / 10;
+            if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && pop < -8)) {
+                return 0;
+            } else if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && pop > 7)) {
+                return 0;
+            }
+            result = result * 10 + pop;
+        } while (next != 0);
+        return result;
+    }
 }

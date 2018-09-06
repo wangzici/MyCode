@@ -5,6 +5,7 @@ import com.kyrie.myleetcode.LeetCodeUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -29,5 +30,11 @@ public class ExampleUnitTest {
         assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7}, LeetCodeUtils.leetcode189(new int[]{1, 2, 3, 4, 5, 6, 7}, 7));
         assertArrayEquals(new int[]{2, 1}, LeetCodeUtils.leetcode189(new int[]{1, 2}, 1));
         assertArrayEquals(new int[]{2, 1}, LeetCodeUtils.leetcode189(new int[]{1, 2}, 3));
+    }
+
+    @Test
+    public void leetcodeToday() {
+        assertEquals(321, LeetCodeUtils.leetcode7(123));
+        assertEquals(0, LeetCodeUtils.leetcode7(1534236469));
     }
 }
