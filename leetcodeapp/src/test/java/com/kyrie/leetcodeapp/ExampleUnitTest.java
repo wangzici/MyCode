@@ -33,8 +33,17 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void leetcodeToday() {
+    public void leetcode7() {
         assertEquals(321, LeetCodeUtils.leetcode7(123));
         assertEquals(0, LeetCodeUtils.leetcode7(1534236469));
+    }
+
+    @SuppressWarnings("SpellCheckingInspection")
+    @Test
+    public void leetcode387() {
+        assertEquals(0, LeetCodeUtils.leetcode387("z"));
+        assertEquals(-1, LeetCodeUtils.leetcode387("cc"));
+        assertEquals(-1, LeetCodeUtils.leetcode387("aabba"));
+        assertEquals(8, LeetCodeUtils.leetcode387("aabbaabbc"));
     }
 }

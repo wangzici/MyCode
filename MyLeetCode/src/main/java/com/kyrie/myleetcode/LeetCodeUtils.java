@@ -1,5 +1,8 @@
 package com.kyrie.myleetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LeetCodeUtils {
     public static int[] leetcode189(int[] nums, int k) {
         final int length = nums.length;
@@ -77,6 +80,43 @@ public class LeetCodeUtils {
             }
             result = result * 10 + pop;
         } while (next != 0);
+        return result;
+    }
+
+    public static int leetcode387(String s) {
+        //solution 1
+        /*char[] arrays = s.toCharArray();
+        Set<Character> repeatChars = new HashSet<Character>();
+        final int length = arrays.length;
+        for(int i = 0;i<length;i++){
+            char cur = arrays[i];
+            if(i == length -1){
+                if(repeatChars.contains(cur)){
+                    return -1;
+                }else{
+                    return i;
+                }
+            }
+            for(int j = i + 1;j<length;j++){
+                if(repeatChars.contains(cur) || cur == arrays[j]){
+                    repeatChars.add(cur);
+                    break;
+                } else if(j == length -1){
+                    return i;
+                }
+            }
+        }
+        return -1;*/
+
+        //best solution
+        int result = -1;
+        for(char curChar = 'a';curChar <= 'z' ; curChar ++) {
+            int firstIndex = s.indexOf(curChar);
+            int lastIndex = s.lastIndexOf(curChar);
+            if (firstIndex != -1 && firstIndex == lastIndex) {
+                result = (result == -1) ? firstIndex : Math.min(result, firstIndex);
+            }
+        }
         return result;
     }
 }
