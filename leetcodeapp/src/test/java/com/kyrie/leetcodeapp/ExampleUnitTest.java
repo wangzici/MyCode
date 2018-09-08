@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+@SuppressWarnings("SpellCheckingInspection")
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
@@ -38,12 +39,18 @@ public class ExampleUnitTest {
         assertEquals(0, LeetCodeUtils.leetcode7(1534236469));
     }
 
-    @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void leetcode387() {
         assertEquals(0, LeetCodeUtils.leetcode387("z"));
         assertEquals(-1, LeetCodeUtils.leetcode387("cc"));
         assertEquals(-1, LeetCodeUtils.leetcode387("aabba"));
         assertEquals(8, LeetCodeUtils.leetcode387("aabbaabbc"));
+    }
+
+    @Test
+    public void leetcode242() {
+        assertEquals(false, LeetCodeUtils.leetcode242("aa","aac"));
+        assertEquals(true, LeetCodeUtils.leetcode242("anagram","nagaram"));
+        assertEquals(false, LeetCodeUtils.leetcode242("rat","car"));
     }
 }

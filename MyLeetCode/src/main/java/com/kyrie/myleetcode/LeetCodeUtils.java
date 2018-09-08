@@ -119,4 +119,67 @@ public class LeetCodeUtils {
         }
         return result;
     }
+
+    public static boolean leetcode242(String s,String t) {
+        //solution 1
+        /*final char[] arrayS = s.toCharArray();
+        final char[] arrayT = t.toCharArray();
+        final int lengthS = arrayS.length;
+        final int lengthT = arrayT.length;
+        if(lengthS != lengthT){
+            return false;
+        }
+        for(char curChar = 'a';curChar <= 'z' ; curChar++){
+            int numS = 0;
+            int numT = 0;
+            for(int i=0;i<lengthS;i++){
+                if(curChar == arrayS[i]){
+                    numS++;
+                }
+            }
+            for(int i=0;i<lengthT;i++){
+                if(curChar == arrayT[i]){
+                    numT++;
+                }
+            }
+            if(numS != numT){
+                return false;
+            }
+        }
+        return true;*/
+
+        //使用api的简易方法
+        /*if(s.length() != t.length()) return false;
+        char[] ss = s.toCharArray();
+        char[] ts = t.toCharArray();
+        Arrays.sort(ss);
+        Arrays.sort(ts);
+
+        for(int i = 0; i < ss.length; i++){
+            if(ss[i] != ts[i]) return false;
+        }
+
+        return true;*/
+
+        //solution 2
+        final char[] arrayS = s.toCharArray();
+        final char[] arrayT = t.toCharArray();
+        final int lengthS = arrayS.length;
+        final int lengthT = arrayT.length;
+        if(lengthS != lengthT){
+            return false;
+        }
+        int[] countS = new int[26];
+        int[] countT = new int[26];
+        for (int i = 0; i < lengthS; i++) {
+            countS[arrayS[i] - 'a']++;
+            countT[arrayT[i] - 'a']++;
+        }
+        for(int i = 0;i< 26;i++) {
+            if (countS[i] != countT[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
