@@ -1,8 +1,5 @@
 package com.kyrie.myleetcode;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class LeetCodeUtils {
     public static int[] leetcode189(int[] nums, int k) {
         final int length = nums.length;
@@ -181,5 +178,54 @@ public class LeetCodeUtils {
             }
         }
         return true;
+    }
+
+    public static boolean leetcode125(String s) {
+        //solution 1
+        //use more api like toLowerCase() and trim()
+/*        char[] arrays = s.toLowerCase().trim().toCharArray();
+        final int length = arrays.length;
+        int start = 0;
+        int end = length - 1;
+        while(start < end){
+            if (!isValid(arrays[start])) {
+                start++;
+            } else if (!isValid(arrays[end])) {
+                end--;
+            } else if (arrays[start] != arrays[end]) {
+                return false;
+            } else {
+                start++;
+                end--;
+            }
+        }
+        return true;*/
+
+        //solution 2
+        char[] arrays = s.toCharArray();
+        final int length = arrays.length;
+        int[] res = new int[length];
+        int resLength = 0;
+        for (char c: arrays) {
+            int resultA = c - 'a';
+            int resultB = c - 'A';
+            if (resultA >= 0 && resultA <= 25) {
+                res[resLength++] = c - 'a' + 10;
+            }else if (resultB >= 0 && resultB <= 25) {
+                res[resLength++] = c - 'A' + 10;
+            }else if (c >= '0' && c <= '9') {
+                res[resLength++] = c - '0';
+            }
+        }
+        for (int i = 0; i < resLength/2; i++) {
+            if (res[i] != res[resLength - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isValid(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
     }
 }
