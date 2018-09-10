@@ -228,4 +228,67 @@ public class LeetCodeUtils {
     private static boolean isValid(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
     }
+
+    public static int leetcode8(String str) {
+        //solution 1
+        /*boolean startNum = false;
+        char[] chars = str.toCharArray();
+        int result = 0;
+        boolean isPositive = true;
+        for(char c : chars){
+            if (!startNum && (c == '-' || c == '+')) {
+                startNum = true;
+                if (c == '-') {
+                    isPositive = false;
+                }
+            } else if(c >= '0' && c <= '9') {
+                startNum = true;
+                if (isPositive && (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && c > '7'))) {
+                    result = Integer.MAX_VALUE;
+                    break;
+                } else if (!isPositive && (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && c > '8'))) {
+                    result = Integer.MIN_VALUE;
+                    break;
+                } else {
+                    int t = Integer.parseInt(String.valueOf(c)) * (isPositive ? 1 : -1);
+                    result = result * 10 + t;
+                }
+            } else if (startNum || c != ' ') {
+                break;
+            }
+        }
+        return result;*/
+
+        //solution 2
+        int index = 0;
+        long out = 0;
+        boolean isPositive = true;
+        final int length = str.length();
+        while (index < length && str.charAt(index) == ' ') {
+            index++;
+        }
+        if (index < length && str.charAt(index) == '-') {
+            isPositive = false;
+            index++;
+        } else if (index < length && str.charAt(index) == '+') {
+            isPositive = true;
+            index++;
+        }
+        while (index < length && Character.isDigit(str.charAt(index))) {
+            final char c = str.charAt(index);
+            out = out * 10 + c - '0';
+            if (out > Integer.MAX_VALUE) {
+                if (isPositive) {
+                    return Integer.MAX_VALUE;
+                } else {
+                    return Integer.MIN_VALUE;
+                }
+            }
+            index++;
+        }
+        if (!isPositive) {
+            out *= -1;
+        }
+        return (int) out;
+    }
 }
