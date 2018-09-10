@@ -8,7 +8,7 @@ public class LeetCodeUtils {
         int cur = nums[i];
         int start = i;
         //cnt代表当前次数，当次数达到了长度时，表示得到了结果
-        for (int cnt  = 0; cnt  < length; cnt ++) {
+        for (int cnt = 0; cnt < length; cnt++) {
             i = (i + k) % length;
             //替换cur和目标位置的值
             int t = nums[i];
@@ -31,7 +31,7 @@ public class LeetCodeUtils {
     public static String leetcode334(String s) {
         char[] arrays = s.toCharArray();
         final int length = arrays.length;
-        for(int i=0; i < length/2 ; i++){
+        for (int i = 0; i < length / 2; i++) {
             char temp = arrays[i];
             arrays[i] = arrays[length - i - 1];
             arrays[length - i - 1] = temp;
@@ -107,7 +107,7 @@ public class LeetCodeUtils {
 
         //best solution
         int result = -1;
-        for(char curChar = 'a';curChar <= 'z' ; curChar ++) {
+        for (char curChar = 'a'; curChar <= 'z'; curChar++) {
             int firstIndex = s.indexOf(curChar);
             int lastIndex = s.lastIndexOf(curChar);
             if (firstIndex != -1 && firstIndex == lastIndex) {
@@ -117,7 +117,7 @@ public class LeetCodeUtils {
         return result;
     }
 
-    public static boolean leetcode242(String s,String t) {
+    public static boolean leetcode242(String s, String t) {
         //solution 1
         /*final char[] arrayS = s.toCharArray();
         final char[] arrayT = t.toCharArray();
@@ -163,7 +163,7 @@ public class LeetCodeUtils {
         final char[] arrayT = t.toCharArray();
         final int lengthS = arrayS.length;
         final int lengthT = arrayT.length;
-        if(lengthS != lengthT){
+        if (lengthS != lengthT) {
             return false;
         }
         int[] countS = new int[26];
@@ -172,7 +172,7 @@ public class LeetCodeUtils {
             countS[arrayS[i] - 'a']++;
             countT[arrayT[i] - 'a']++;
         }
-        for(int i = 0;i< 26;i++) {
+        for (int i = 0; i < 26; i++) {
             if (countS[i] != countT[i]) {
                 return false;
             }
@@ -206,18 +206,18 @@ public class LeetCodeUtils {
         final int length = arrays.length;
         int[] res = new int[length];
         int resLength = 0;
-        for (char c: arrays) {
+        for (char c : arrays) {
             int resultA = c - 'a';
             int resultB = c - 'A';
             if (resultA >= 0 && resultA <= 25) {
                 res[resLength++] = c - 'a' + 10;
-            }else if (resultB >= 0 && resultB <= 25) {
+            } else if (resultB >= 0 && resultB <= 25) {
                 res[resLength++] = c - 'A' + 10;
-            }else if (c >= '0' && c <= '9') {
+            } else if (c >= '0' && c <= '9') {
                 res[resLength++] = c - '0';
             }
         }
-        for (int i = 0; i < resLength/2; i++) {
+        for (int i = 0; i < resLength / 2; i++) {
             if (res[i] != res[resLength - i - 1]) {
                 return false;
             }
