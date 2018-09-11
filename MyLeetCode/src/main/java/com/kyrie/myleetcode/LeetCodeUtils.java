@@ -291,4 +291,52 @@ public class LeetCodeUtils {
         }
         return (int) out;
     }
+
+    public static int leetcode28(String haystack, String needle) {
+        //solution 1
+        /*final int lengthH = haystack.length();
+        final int lengthN = needle.length();
+        if (lengthN == 0) {
+            return 0;
+        }
+        int i = 0;
+        int j = 0;
+        int result = 0;
+        boolean findFirst = false;
+        while (i < lengthH) {
+            if (haystack.charAt(i) == needle.charAt(j)) {
+                j++;
+                if (findFirst) {
+                    i++;
+                } else {
+                    findFirst = true;
+                    result = i;
+                    i++;
+                }
+            } else {
+                findFirst = false;
+                j = 0;
+                i = ++result;
+            }
+            if (j == lengthN) {
+                return result;
+            }
+        }
+        return -1;*/
+
+        //solution 2
+        final int lengthN = needle.length();
+        if (lengthN == 0 || haystack.equals(needle)) {
+            return 0;
+        }
+        if (haystack.contains(needle)) {
+            final String[] split = haystack.split(needle);
+            if (split.length == 0) {
+                return 0;
+            } else{
+                return split[0].length();
+            }
+        }
+        return -1;
+    }
 }

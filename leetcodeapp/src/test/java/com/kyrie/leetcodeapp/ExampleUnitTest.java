@@ -15,6 +15,10 @@ import static org.junit.Assert.assertEquals;
 @SuppressWarnings("SpellCheckingInspection")
 public class ExampleUnitTest {
     @Test
+    public void leetcode() {
+    }
+
+    @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
@@ -75,5 +79,16 @@ public class ExampleUnitTest {
         assertEquals(Integer.MAX_VALUE, LeetCodeUtils.leetcode8("92233720368547758070"));
         assertEquals(1, LeetCodeUtils.leetcode8("+1"));
         assertEquals(0, LeetCodeUtils.leetcode8("+-2"));
+    }
+
+    @Test
+    public void leetcode28() {
+        assertEquals(2, LeetCodeUtils.leetcode28("hello", "ll"));
+        assertEquals(-1, LeetCodeUtils.leetcode28("aaaaa", "bba"));
+        assertEquals(0, LeetCodeUtils.leetcode28("aaaaa", ""));
+        assertEquals(0, LeetCodeUtils.leetcode28("", ""));
+        assertEquals(0, LeetCodeUtils.leetcode28("a", "a"));
+        assertEquals(4, LeetCodeUtils.leetcode28("mississippi", "issip"));
+        assertEquals(9, LeetCodeUtils.leetcode28("mississippi", "pi"));
     }
 }
