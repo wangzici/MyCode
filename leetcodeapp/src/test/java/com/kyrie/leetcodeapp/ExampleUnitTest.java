@@ -99,4 +99,12 @@ public class ExampleUnitTest {
         assertEquals("111221", LeetCodeUtils.leetcode38(5));
         assertEquals("312211", LeetCodeUtils.leetcode38(6));
     }
+
+    @Test
+    public void leetcode14() {
+        assertEquals("fl", LeetCodeUtils.leetcode14(new String[]{"flower","flow","flight"}));
+        assertEquals("", LeetCodeUtils.leetcode14(new String[]{"dog","racecar","car"}));
+        assertEquals("a", LeetCodeUtils.leetcode14(new String[]{"aa","a"}));
+        assertEquals("a", LeetCodeUtils.leetcode14(new String[]{"asdfasdf","ac","acccccc"}));
+    }
 }

@@ -374,4 +374,38 @@ public class LeetCodeUtils {
         }
         return stringBuilder.toString();
     }
+
+    public static String leetcode14(String[] strs) {
+        //solution 1
+        /*if (strs.length == 0) {
+            return "";
+        }
+        String firstStr = strs[0];
+        int result = firstStr.length();
+        for (int i = 1; i < strs.length; i++) {
+            final String curString = strs[i];
+            int temp = 0;
+            for (int j = 0; j < result && j < strs[i].length() && curString.charAt(j) == firstStr.charAt(j); j++) {
+                temp++;
+            }
+            result = temp;
+        }
+        if (result == 0) {
+            return "";
+        }else {
+            return firstStr.substring(0, result);
+        }*/
+
+        //solution 2
+        if (strs.length == 0) {
+            return "";
+        }
+        String result = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (!strs[i].startsWith(result)) {
+                result = result.substring(0, result.length() - 1);
+            }
+        }
+        return result;
+    }
 }
