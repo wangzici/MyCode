@@ -421,13 +421,27 @@ public class LeetCodeUtils {
     public void leetCode237(ListNode node) {
         //传入的node是要被删除的node
         ListNode temp = node.next;
-        if (temp == null) {
-            node = null;
-        } else {
-            node.val = temp.val;
-            node.next = temp.next;
-            temp.next = null;
-        }
+        node.val = temp.val;
+        node.next = temp.next;
     }
 
+    public ListNode leetcode19(ListNode head, int n) {
+        ListNode newHead = new ListNode(0);
+        newHead.next = head;
+        head = newHead;
+        ListNode lastNode = head;
+        ListNode firstNode = head;
+        for (int i = 0; i < n; i++) {
+            lastNode = lastNode.next;
+        }
+        while (lastNode.next != null) {
+            firstNode = firstNode.next;
+            lastNode = lastNode.next;
+        }
+        if (firstNode.next == null) {
+            return null;
+        }
+        firstNode.next = firstNode.next.next;
+        return head.next;
+    }
 }
