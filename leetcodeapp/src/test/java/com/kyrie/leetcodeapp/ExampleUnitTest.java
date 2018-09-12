@@ -91,4 +91,12 @@ public class ExampleUnitTest {
         assertEquals(4, LeetCodeUtils.leetcode28("mississippi", "issip"));
         assertEquals(9, LeetCodeUtils.leetcode28("mississippi", "pi"));
     }
+
+    @Test
+    public void leetcode38() {
+        assertEquals("1", LeetCodeUtils.leetcode38(1));
+        assertEquals("11", LeetCodeUtils.leetcode38(2));
+        assertEquals("111221", LeetCodeUtils.leetcode38(5));
+        assertEquals("312211", LeetCodeUtils.leetcode38(6));
+    }
 }

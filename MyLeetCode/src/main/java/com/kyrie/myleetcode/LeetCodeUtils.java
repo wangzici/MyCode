@@ -339,4 +339,39 @@ public class LeetCodeUtils {
         }
         return -1;
     }
+
+    public static String leetcode38(int n) {
+        if (n == 1) {
+            return "1";
+        }
+        String preResult = leetcode38(n - 1);
+        StringBuilder stringBuilder = new StringBuilder();
+        //solution 1
+        /*int i = 1;
+        char curChar = preResult.charAt(0);
+        int curCount = 1;
+        while (i < preResult.length()) {
+            if (curChar == preResult.charAt(i)) {
+                curCount++;
+            } else {
+                stringBuilder.append(curCount).append(curChar);
+                curCount = 1;
+                curChar = preResult.charAt(i);
+            }
+            i++;
+        }
+        stringBuilder.append(curCount).append(curChar);*/
+
+        //solution 2
+        //原理相同，不过这种循环方式思路更加清晰，代码量更少
+        int i = 0;
+        while (i < preResult.length()) {
+            int index = i;
+            while (i < preResult.length() && preResult.charAt(i) == preResult.charAt(index)) {
+                i++;
+            }
+            stringBuilder.append(i - index).append(preResult.charAt(index));
+        }
+        return stringBuilder.toString();
+    }
 }
