@@ -408,4 +408,26 @@ public class LeetCodeUtils {
         }
         return result;
     }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
+    public void leetCode237(ListNode node) {
+        //传入的node是要被删除的node
+        ListNode temp = node.next;
+        if (temp == null) {
+            node = null;
+        } else {
+            node.val = temp.val;
+            node.next = temp.next;
+            temp.next = null;
+        }
+    }
+
 }
