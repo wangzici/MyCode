@@ -444,4 +444,58 @@ public class LeetCodeUtils {
         firstNode.next = firstNode.next.next;
         return head.next;
     }
+
+    public ListNode leetcode206(ListNode head) {
+        //solution 1 迭代
+        /*ListNode mPre = null;
+        ListNode mCur = head;
+        while (mCur != null) {
+            ListNode mNext = mCur.next;
+            mCur.next = mPre;
+
+            mPre = mCur;
+            mCur = mNext;
+        }
+        return mPre;*/
+
+        //solution 2 递归
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode node = leetcode206(head.next);
+        head.next.next = head;
+        head.next = null;
+        return node;
+    }
+
+    public ListNode leetcode21(ListNode l1, ListNode l2) {
+        ListNode newListNode = new ListNode(0);
+        ListNode newHead = newListNode;
+        /*while(l1 != null || l2 != null){
+            if (l1 != null && (l2 == null || l2.val > l1.val)) {
+                newListNode.next = l1;
+                l1 = l1.next;
+            }else {
+                newListNode.next = l2;
+                l2 = l2.next;
+            }
+            newListNode = newListNode.next;
+        }*/
+        while (l1 != null && l2 != null) {
+            if (l2.val > l1.val) {
+                newListNode.next = l1;
+                l1 = l1.next;
+            } else {
+                newListNode.next = l2;
+                l2 = l2.next;
+            }
+            newListNode = newListNode.next;
+        }
+        if (l1 != null) {
+            newListNode.next = l1;
+        } else {
+            newListNode.next = l2;
+        }
+        return newHead.next;
+    }
 }
