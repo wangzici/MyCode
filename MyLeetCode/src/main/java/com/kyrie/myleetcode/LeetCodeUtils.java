@@ -1,5 +1,7 @@
 package com.kyrie.myleetcode;
 
+import com.kyrie.myleetcode.model.ListNode;
+
 public class LeetCodeUtils {
     public static int[] leetcode189(int[] nums, int k) {
         final int length = nums.length;
@@ -409,15 +411,6 @@ public class LeetCodeUtils {
         return result;
     }
 
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public void leetCode237(ListNode node) {
         //传入的node是要被删除的node
         ListNode temp = node.next;
@@ -497,5 +490,62 @@ public class LeetCodeUtils {
             newListNode.next = l2;
         }
         return newHead.next;
+    }
+
+    public static boolean leetCode234(ListNode head) {
+        //solution 1
+        ListNode slowNode = head;
+        ListNode fastHead = head;
+        if (head == null || head.next == null) {
+            return true;
+        }
+        while (fastHead.next != null && fastHead.next.next != null) {
+            fastHead = fastHead.next.next;
+            slowNode = slowNode.next;
+        }
+
+        ListNode mPre = slowNode;
+        ListNode mCur = slowNode.next;
+        while (mCur != null) {
+            ListNode mNext = mCur.next;
+            mCur.next = mPre;
+
+            mPre = mCur;
+            mCur = mNext;
+        }
+        slowNode.next = null;
+        while (head != null) {
+            if (mPre.val != head.val) {
+                return false;
+            }
+            mPre = mPre.next;
+            head = head.next;
+        }
+        return true;
+
+        /*0ms大神解法*/
+        //此解法正确性未知
+        /*if(head==null||head.next==null) return true;//空链表和长度1的链表返回true
+        if(head.next.next==null){
+            if(head.val==head.next.val) return true;
+            return false;
+        }
+        //长度3以上的链表比较
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(fast.next!=null){
+            if(fast.next.val==slow.val){
+                if(fast.next.next!=null) return false;
+                fast.next=null;
+                slow = slow.next;
+                fast = slow.next;
+                if(fast==null||fast.val==slow.val){
+                    return true;
+                }
+            }else{
+                fast=fast.next;
+            }
+        }
+        return false;*/
     }
 }

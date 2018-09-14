@@ -1,6 +1,7 @@
 package com.kyrie.leetcodeapp;
 
 import com.kyrie.myleetcode.LeetCodeUtils;
+import com.kyrie.myleetcode.model.ListNode;
 
 import org.junit.Test;
 
@@ -106,5 +107,11 @@ public class ExampleUnitTest {
         assertEquals("", LeetCodeUtils.leetcode14(new String[]{"dog","racecar","car"}));
         assertEquals("a", LeetCodeUtils.leetcode14(new String[]{"aa","a"}));
         assertEquals("a", LeetCodeUtils.leetcode14(new String[]{"asdfasdf","ac","acccccc"}));
+    }
+
+    @Test
+    public void leetcode234() {
+        assertEquals(false, LeetCodeUtils.leetCode234(ListNode.createNode(new int[]{1,2})));
+        assertEquals(true, LeetCodeUtils.leetCode234(ListNode.createNode(new int[]{1,2,1,2,3,2,1,2,1})));
     }
 }
