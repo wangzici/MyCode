@@ -1,6 +1,10 @@
 package com.kyrie.myleetcode;
 
 import com.kyrie.myleetcode.model.ListNode;
+import com.kyrie.myleetcode.model.TreeNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class LeetCodeUtils {
     public static int[] leetcode189(int[] nums, int k) {
@@ -560,5 +564,28 @@ public class LeetCodeUtils {
             }
         }
         return false;
+    }
+
+    public int leetcode104(TreeNode root) {
+        //solution 1
+//        return root == null ? 0 : (1 + Math.max(leetcode104(root.left) , leetcode104(root.right)));
+
+        //solution 2
+        if (root == null) {
+            return 0;
+        }
+        int result = 0;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            result++;
+            final int size = q.size();
+            for(int i = 0;i < size;i++){
+                TreeNode node = q.poll();
+                if(node.left != null) q.offer(node.left);
+                if(node.right != null) q.offer(node.right);
+            }
+        }
+        return result;
     }
 }
