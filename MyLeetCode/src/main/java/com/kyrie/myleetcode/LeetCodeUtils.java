@@ -588,4 +588,45 @@ public class LeetCodeUtils {
         }
         return result;
     }
+
+    public static int leetcode904(int[] tree) {
+        int result1 = 0;
+        int result2 = 0;
+        int resultMax = 0;
+        int f1 = -1;
+        int f2 = -1;
+        int pre = -1;
+        int lastChangeIndex = 0;
+        final int length = tree.length;
+        if(length <= 2){
+            return length;
+        }
+        for(int i = 0;i < length;i++){
+            if(tree[i] == f1){
+                result1++;
+            }else if(tree[i] == f2){
+                result2++;
+            }else if(f1 == -1){
+                f1 = tree[i];
+                result1++;
+            }else if(f2 == -1){
+                f2 = tree[i];
+                result2++;
+            }else{
+                resultMax = resultMax < (result1 + result2) ? (result1 + result2) : resultMax;
+                if(pre != f1){
+                    f1 = f2;
+                }
+                result1 = i - lastChangeIndex;
+                result2 = 1;
+                f2 = tree[i];
+            }
+            if(tree[i] != pre){
+                lastChangeIndex = i;
+            }
+            pre = tree[i];
+        }
+        resultMax = resultMax < (result1 + result2) ? (result1 + result2) : resultMax;
+        return resultMax;
+    }
 }
