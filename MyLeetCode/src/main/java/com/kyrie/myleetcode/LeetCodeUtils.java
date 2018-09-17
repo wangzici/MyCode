@@ -3,8 +3,11 @@ package com.kyrie.myleetcode;
 import com.kyrie.myleetcode.model.ListNode;
 import com.kyrie.myleetcode.model.TreeNode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class LeetCodeUtils {
     public static int[] leetcode189(int[] nums, int k) {
@@ -553,7 +556,7 @@ public class LeetCodeUtils {
         return false;*/
     }
 
-    public boolean hasCycle(ListNode head) {
+    public boolean leetcode141(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
@@ -628,5 +631,35 @@ public class LeetCodeUtils {
         }
         resultMax = resultMax < (result1 + result2) ? (result1 + result2) : resultMax;
         return resultMax;
+    }
+
+    public boolean leetcode98(TreeNode root) {
+        TreeNode node = root;
+        List<Integer> list = new ArrayList<>();
+        inorder(node, list);
+        /*Stack<TreeNode> stack = new Stack<>();
+        while (stack.size() != 0 || node != null) {
+            if (node == null) {
+                node = stack.pop();
+                list.add(node.val);
+                node = node.right;
+            } else {
+                stack.push(node);
+                node = node.left;
+            }
+        }*/
+        for (int i = 0; i < list.size() - 1 ; i++) {
+            if (list.get(i) >= list.get(i + 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void inorder(TreeNode node,List<Integer> list){
+        if(node == null) return;
+        inorder(node.left,list);
+        list.add(node.val);
+        inorder(node.right,list);
     }
 }
