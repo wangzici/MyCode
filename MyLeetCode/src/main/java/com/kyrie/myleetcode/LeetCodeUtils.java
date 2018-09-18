@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
 
 public class LeetCodeUtils {
     public static int[] leetcode189(int[] nums, int k) {
@@ -634,9 +633,8 @@ public class LeetCodeUtils {
     }
 
     public boolean leetcode98(TreeNode root) {
-        TreeNode node = root;
         List<Integer> list = new ArrayList<>();
-        inorder(node, list);
+        inorder(root, list);
         /*Stack<TreeNode> stack = new Stack<>();
         while (stack.size() != 0 || node != null) {
             if (node == null) {
@@ -661,5 +659,42 @@ public class LeetCodeUtils {
         inorder(node.left,list);
         list.add(node.val);
         inorder(node.right,list);
+    }
+
+    public boolean leetcode101(TreeNode root) {
+        //solution 1
+        //return root != null && isTreeSymmetric(root.left,root.right);
+
+        //solution2
+        if (root == null) {
+            return true;
+        }
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
+        queue1.offer(root.left);
+        queue2.offer(root.right);
+        while (queue1.size() != 0 && queue2.size() != 0) {
+            TreeNode node1 = queue1.poll();
+            TreeNode node2 = queue2.poll();
+            if(node1 == null && node2 == null){
+                continue;
+            } else if (node1 == null || node2 == null || node1.val != node2.val) {
+                return false;
+            }
+            queue1.offer(node1.left);
+            queue1.offer(node1.right);
+            queue2.offer(node2.right);
+            queue2.offer(node2.left);
+        }
+        return true;
+    }
+
+    public boolean isTreeSymmetric(TreeNode left, TreeNode right){
+        if (left == null && right == null) {
+            return true;
+        } else if (left == null || right == null) {
+            return false;
+        }
+        return left.val == right.val && isTreeSymmetric(left.left, right.right) && isTreeSymmetric(left.right, right.left);
     }
 }
