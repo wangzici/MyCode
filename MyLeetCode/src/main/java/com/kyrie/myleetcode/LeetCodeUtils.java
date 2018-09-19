@@ -4,6 +4,7 @@ import com.kyrie.myleetcode.model.ListNode;
 import com.kyrie.myleetcode.model.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -696,5 +697,47 @@ public class LeetCodeUtils {
             return false;
         }
         return left.val == right.val && isTreeSymmetric(left.left, right.right) && isTreeSymmetric(left.right, right.left);
+    }
+
+    public List<List<Integer>> leetcodeToday(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        List<List<Integer>> result = new LinkedList<>();
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            LinkedList<TreeNode> queue1 = new LinkedList<>();
+            LinkedList<Integer> integers = new LinkedList<>();
+            for (int i = 0; i < queue.size(); i++) {
+                TreeNode node = queue.poll();
+                integers.add(node.val);
+                if (node.left != null) {
+                    queue1.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue1.offer(node.right);
+                }
+            }
+            result.add(integers);
+            queue = queue1;
+        }
+        return result;
+    }
+
+    public TreeNode leetcodeToday2(int[] nodes) {
+        if (nodes == null || nodes.length == 0) {
+            return null;
+        }
+        final int size = nodes.length;
+        TreeNode node = new TreeNode(nodes[size/2]);
+
+        if (nodes.length > 2) {
+            node.left = leetcodeToday2(Arrays.copyOfRange(nodes, 0, size / 2));
+            node.right = leetcodeToday2(Arrays.copyOfRange(nodes, size / 2 + 1, size));
+        } else if (nodes.length == 2) {
+            node.left = new TreeNode(nodes[0]);
+        }
+        return node;
     }
 }
