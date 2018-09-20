@@ -700,27 +700,30 @@ public class LeetCodeUtils {
     }
 
     public List<List<Integer>> leetcodeToday(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
         List<List<Integer>> result = new LinkedList<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
+        ArrayList<Integer> integers;
+        if (root == null) {
+            return result;
+        }
         queue.offer(root);
         while (!queue.isEmpty()) {
-            LinkedList<TreeNode> queue1 = new LinkedList<>();
-            LinkedList<Integer> integers = new LinkedList<>();
-            for (int i = 0; i < queue.size(); i++) {
+            //此处一定要重新new一个ArrayList，否则使用重复的话会导致存储在result里的ArrayList也被修改
+            integers = new ArrayList<>();
+            //注意此处一定要先把size取出来，因为在循环中也会修改queue的size
+            //并且取出来了之后，就不用再重复创建一个新的Queue来区分相邻的两层
+            final int size = queue.size();
+            for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 integers.add(node.val);
                 if (node.left != null) {
-                    queue1.offer(node.left);
+                    queue.offer(node.left);
                 }
                 if (node.right != null) {
-                    queue1.offer(node.right);
+                    queue.offer(node.right);
                 }
             }
             result.add(integers);
-            queue = queue1;
         }
         return result;
     }
