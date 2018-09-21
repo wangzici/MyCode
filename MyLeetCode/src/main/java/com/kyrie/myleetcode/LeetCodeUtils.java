@@ -699,9 +699,10 @@ public class LeetCodeUtils {
         return left.val == right.val && isTreeSymmetric(left.left, right.right) && isTreeSymmetric(left.right, right.left);
     }
 
-    public List<List<Integer>> leetcodeToday(TreeNode root) {
+    public List<List<Integer>> leetcode201(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
-        LinkedList<TreeNode> queue = new LinkedList<>();
+        //solution 1
+        /*LinkedList<TreeNode> queue = new LinkedList<>();
         ArrayList<Integer> integers;
         if (root == null) {
             return result;
@@ -725,7 +726,22 @@ public class LeetCodeUtils {
             }
             result.add(integers);
         }
+        return result;*/
+        addLevel(root, 1, result);
         return result;
+    }
+
+    private void addLevel(TreeNode node,int length,List<List<Integer>> result) {
+        if (node == null) {
+            return;
+        }
+        if (result.size() < length) {
+            result.add(new ArrayList<Integer>());
+        }
+        result.get(length - 1).add(node.val);
+        length++;
+        addLevel(node.left, length,result);
+        addLevel(node.right, length, result);
     }
 
     public TreeNode leetcodeToday2(int[] nodes) {
