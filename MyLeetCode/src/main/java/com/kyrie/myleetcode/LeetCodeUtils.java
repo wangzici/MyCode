@@ -744,19 +744,36 @@ public class LeetCodeUtils {
         addLevel(node.right, length, result);
     }
 
-    public TreeNode leetcodeToday2(int[] nodes) {
-        if (nodes == null || nodes.length == 0) {
+    public TreeNode leetcode108(int[] nums) {
+        if (nums == null || nums.length == 0) {
             return null;
         }
-        final int size = nodes.length;
-        TreeNode node = new TreeNode(nodes[size/2]);
+        /*final int size = nums.length;
+        TreeNode node = new TreeNode(nums[size/2]);
 
-        if (nodes.length > 2) {
-            node.left = leetcodeToday2(Arrays.copyOfRange(nodes, 0, size / 2));
-            node.right = leetcodeToday2(Arrays.copyOfRange(nodes, size / 2 + 1, size));
-        } else if (nodes.length == 2) {
-            node.left = new TreeNode(nodes[0]);
+        if (nums.length > 2) {
+            node.left = leetcode108(Arrays.copyOfRange(nums, 0, size / 2));
+            node.right = leetcode108(Arrays.copyOfRange(nums, size / 2 + 1, size));
+        } else if (nums.length == 2) {
+            node.left = new TreeNode(nums[0]);
         }
-        return node;
+        return node;*/
+
+        //solution2
+        return sortedArrayToBST(nums, 0, nums.length);
+    }
+
+    private TreeNode sortedArrayToBST(int[] nums, int start, int end) {
+        if (start > end) {
+            return null;
+        } else if (start == end) {
+            return new TreeNode(nums[start]);
+        } else {
+            int mid = (start + end) / 2;
+            TreeNode node = new TreeNode((nums[mid]));
+            node.left = sortedArrayToBST(nums, start, mid);
+            node.right = sortedArrayToBST(nums, mid + 1, end);
+            return node;
+        }
     }
 }
