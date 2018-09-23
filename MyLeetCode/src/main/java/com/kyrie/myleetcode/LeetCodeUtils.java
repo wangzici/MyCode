@@ -776,4 +776,33 @@ public class LeetCodeUtils {
             return node;
         }
     }
+
+    public int leetcode908(int[] A, int K) {
+        if(A.length <= 1){
+            return 0;
+        }
+        int max = findMax(A);
+        int min = findMin(A);
+        if(max - min <= K * 2){
+            return 0;
+        }else{
+            return max - min - 2 * K;
+        }
+    }
+
+    private int findMax(int[] A){
+        int max = Integer.MIN_VALUE;
+        for(int a : A){
+            max = max < a ? a : max;
+        }
+        return max;
+    }
+
+    private int findMin(int[] A){
+        int min = Integer.MAX_VALUE;
+        for(int a : A){
+            min = min > a ? a : min;
+        }
+        return min;
+    }
 }
