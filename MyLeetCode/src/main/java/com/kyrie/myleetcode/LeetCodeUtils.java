@@ -805,4 +805,38 @@ public class LeetCodeUtils {
         }
         return min;
     }
+
+    public void leetcode88(int[] nums1, int m, int[] nums2, int n) {
+        //solution1
+        /*int i = 0;
+        int j = 0;
+        int startIndex = nums1.length - m;
+        *//*for(int k = m - 1;k >= 0;k--){
+            nums1[k + nums1.length -m] = nums1[k];
+        }*//*
+        System.arraycopy(nums1, 0, nums1, nums1.length - m, m);
+        while(j < n){
+            if(startIndex == nums1.length || nums1[startIndex] > nums2[j]){
+                nums1[i] = nums2[j];
+                j++;
+            }else{
+                nums1[i] = nums1[startIndex];
+                startIndex++;
+            }
+            i++;
+        }*/
+
+        //solution2
+        //该方法是从后往前的，相比解法1更轻松
+        //该方法熟练使用了类似nums1[count--]的方法，很好的简略了代码
+        int count = m + n -1;
+        m--;
+        n--;
+        while (m != -1 && n != -1) {
+            nums1[count--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
+        }
+        while (n != -1) {
+            nums1[count--] = nums2[n--];
+        }
+    }
 }
