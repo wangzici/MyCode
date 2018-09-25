@@ -839,4 +839,23 @@ public class LeetCodeUtils {
             nums1[count--] = nums2[n--];
         }
     }
+
+    public int leetcode278(int n) {
+        int left = 1;
+        int right = n;
+        int mid;
+        while (right > left) {
+            mid = left / 2 + right / 2;
+            if (isBadVersion(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean isBadVersion(int n){
+        return false;
+    }
 }
