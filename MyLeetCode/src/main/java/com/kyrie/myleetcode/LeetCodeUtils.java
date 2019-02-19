@@ -858,4 +858,77 @@ public class LeetCodeUtils {
     private boolean isBadVersion(int n){
         return false;
     }
+
+    public static int leetcode90(int n) {
+        //solution 1 通过递归的方式
+        /*if(n == 1) return 1;
+        if(n == 2) return 2;
+        int[] nums = new int[n + 1];
+        nums[1] = 1;
+        nums[2] = 2;
+        climb(nums, n);
+        return nums[n];*/
+
+        //solution2 其实和solution1相似，但是思路更加清晰，直接从1开始把每个顺序这么递加上去
+        if(n == 1) return 1;
+        if(n == 2) return 2;
+        int[] nums = new int[n];
+        nums[0] = 1;
+        nums[1] = 2;
+        for (int i = 2; i < n; i++) {
+            nums[i] = nums[i - 1] + nums[i - 2];
+        }
+        return nums[n - 1];
+    }
+
+    private static void climb(int[] nums, int n) {
+        if (nums[n] != 0) {
+            return;
+        }
+        if (n > 2 && nums[n - 1] == 0) {
+            climb(nums, n - 1);
+        }
+        if (n > 2 && nums[n - 2] == 0) {
+            climb(nums, n - 2);
+        }
+        nums[n] = nums[n - 1] + nums[n - 2];
+    }
+
+    public static int leetcode121(int[] prices) {
+        //my solution:通过找到高点与低点的方式得值
+/*        int result = 0;
+        final int length = prices.length;
+        if (length > 1) {
+            //最低点
+            int minIndex = 0;
+            int maxIndex = 0;
+            for(int i = 1; i < length - 1;i++) {
+                if (prices[i] >= prices[i + 1] && prices[i] > prices[i - 1] && prices[i] > prices[maxIndex]) {
+                    //是一个更高点
+                    maxIndex = i;
+                    int tempResult = prices[maxIndex] - prices[minIndex];
+                    result = result < tempResult ? tempResult : result;
+                }else if (prices[i] <= prices[i + 1] && prices[i] < prices[i - 1] && prices[i] < prices[minIndex]) {
+                    //是一个更低点
+                    minIndex = i;
+                    maxIndex = i;
+                }
+            }
+            int tempResult = prices[length - 1] - prices[minIndex];
+            result = result < tempResult ? tempResult : result;
+        }
+        return result;*/
+
+        //solution 2
+        int min = Integer.MAX_VALUE;
+        int result = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < min) {
+                min = prices[i];
+            } else {
+                result = Math.max(result, prices[i] - min);
+            }
+        }
+        return result;
+    }
 }

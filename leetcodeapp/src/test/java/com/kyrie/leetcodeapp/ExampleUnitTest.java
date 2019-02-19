@@ -121,4 +121,20 @@ public class ExampleUnitTest {
         assertEquals(3, LeetCodeUtils.leetcode904(new int[]{0,1,2,2}));
         assertEquals(5, LeetCodeUtils.leetcode904(new int[]{3,3,3,1,2,1,1,2,3,3,4}));
     }
+
+    @Test
+    public void leetcode70() {
+        assertEquals(2, LeetCodeUtils.leetcode90(2));
+        assertEquals(3, LeetCodeUtils.leetcode90(3));
+        assertEquals(5, LeetCodeUtils.leetcode90(4));
+    }
+
+    @Test
+    public void leetcode121() {
+        assertEquals(5, LeetCodeUtils.leetcode121(new int[]{7,1,5,3,6,4}));
+        assertEquals(0, LeetCodeUtils.leetcode121(new int[]{7,6,4,3,1}));
+        assertEquals(1, LeetCodeUtils.leetcode121(new int[]{1,2}));
+        assertEquals(4, LeetCodeUtils.leetcode121(new int[]{3,3,5,0,0,3,1,4}));
+
+    }
 }
