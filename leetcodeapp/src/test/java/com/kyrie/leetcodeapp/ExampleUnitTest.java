@@ -135,6 +135,18 @@ public class ExampleUnitTest {
         assertEquals(0, LeetCodeUtils.leetcode121(new int[]{7,6,4,3,1}));
         assertEquals(1, LeetCodeUtils.leetcode121(new int[]{1,2}));
         assertEquals(4, LeetCodeUtils.leetcode121(new int[]{3,3,5,0,0,3,1,4}));
+    }
 
+    @Test
+    public void leetcode53() {
+        assertEquals(1, LeetCodeUtils.leetcode53(new int[]{1}));
+        assertEquals(3, LeetCodeUtils.leetcode53(new int[]{1, 2}));
+        assertEquals(6, LeetCodeUtils.leetcode53(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+    }
+
+    @Test
+    public void leetcodet198() {
+        assertEquals(2, LeetCodeUtils.leetcode198(new int[]{1,2}));
+        assertEquals(4, LeetCodeUtils.leetcode198(new int[]{2,1,1,2}));
     }
 }

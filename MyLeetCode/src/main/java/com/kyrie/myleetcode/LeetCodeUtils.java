@@ -895,31 +895,6 @@ public class LeetCodeUtils {
     }
 
     public static int leetcode121(int[] prices) {
-        //my solution:通过找到高点与低点的方式得值
-/*        int result = 0;
-        final int length = prices.length;
-        if (length > 1) {
-            //最低点
-            int minIndex = 0;
-            int maxIndex = 0;
-            for(int i = 1; i < length - 1;i++) {
-                if (prices[i] >= prices[i + 1] && prices[i] > prices[i - 1] && prices[i] > prices[maxIndex]) {
-                    //是一个更高点
-                    maxIndex = i;
-                    int tempResult = prices[maxIndex] - prices[minIndex];
-                    result = result < tempResult ? tempResult : result;
-                }else if (prices[i] <= prices[i + 1] && prices[i] < prices[i - 1] && prices[i] < prices[minIndex]) {
-                    //是一个更低点
-                    minIndex = i;
-                    maxIndex = i;
-                }
-            }
-            int tempResult = prices[length - 1] - prices[minIndex];
-            result = result < tempResult ? tempResult : result;
-        }
-        return result;*/
-
-        //solution 2
         int min = Integer.MAX_VALUE;
         int result = 0;
         for (int i = 0; i < prices.length; i++) {
@@ -930,5 +905,32 @@ public class LeetCodeUtils {
             }
         }
         return result;
+    }
+
+    public static int leetcode53(int[] nums) {
+        int result = nums[0];
+        int n = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if(n < 0) n = nums[i];
+            else n += nums[i];
+            result = Math.max(result, n);
+        }
+        return result;
+    }
+
+    public static int leetcode198(int[] nums) {
+        int n = nums.length;
+        if (n == 0) {
+            return 0;
+        }
+        int[] results = new int[n];
+        results[0] = nums[0];
+        if (n > 1) {
+            results[1] = Math.max(nums[0], nums[1]);
+        }
+        for (int i = 2; i < n; i++) {
+            results[i] = Math.max(results[i - 1], results[i - 2] + nums[i]);
+        }
+        return results[n - 1];
     }
 }
