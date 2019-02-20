@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/drawlots/drawlots.iml" filepath="$PROJECT_DIR$/drawlots/drawlots.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeapp/leetcodeapp.iml" filepath="$PROJECT_DIR$/leetcodeapp/leetcodeapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/myedittext/myedittext.iml" filepath="$PROJECT_DIR$/myedittext/myedittext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testskin/testskin.iml" filepath="$PROJECT_DIR$/testskin/testskin.iml" />
     </modules>
   </component>
 </project>
