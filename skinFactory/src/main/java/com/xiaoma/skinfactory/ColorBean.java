@@ -129,7 +129,7 @@ public class ColorBean {
             mColorDetailBeans.add(new ColorDetailBean("天气介绍标题", "weather_desc_title_color", "weatherTitle", weatherTitle));
             mColorDetailBeans.add(new ColorDetailBean("天气介绍内容", "weather_desc_content_color", "weatherContent", weatherContent));
             mColorDetailBeans.add(new ColorDetailBean("天气温度", "weather_temp_color", "weatherTemp", weatherTemp));
-            mColorDetailBeans.add(new ColorDetailBean("天气描述", "weather_desc_content_color", "weatherDesc", weatherDesc));
+            mColorDetailBeans.add(new ColorDetailBean("天气描述", "weather_desc_color", "weatherDesc", weatherDesc));
             mColorDetailBeans.add(new ColorDetailBean("天气城市名称", "weather_city_color_new", "weatherCity", weatherCity));
             mColorDetailBeans.add(new ColorDetailBean("歌曲名称", "music_info_name_color", "musicName", musicName));
             mColorDetailBeans.add(new ColorDetailBean("歌手名称", "music_info_singer_color", "musicSinger", musicSinger));
@@ -163,7 +163,7 @@ public class ColorBean {
             mColorDetailBeans.add(new ColorDetailBean("样式2时钟日期", "time_date_s2", "clockDateS2", clockDateS2));
             mColorDetailBeans.add(new ColorDetailBean("样式2时钟星期", "time_week_s2", "clockWeekS2", clockWeekS2));
             mColorDetailBeans.add(new ColorDetailBean("样式2天气温度", "weather_temp_color_s2", "weatherTempS2", weatherTempS2));
-            mColorDetailBeans.add(new ColorDetailBean("样式2天气描述", "weather_city_color_new_s2", "weatherDescS2", weatherDescS2));
+            mColorDetailBeans.add(new ColorDetailBean("样式2天气描述", "weather_desc_color_s2", "weatherDescS2", weatherDescS2));
             mColorDetailBeans.add(new ColorDetailBean("样式2天气城市名称", "weather_city_color_new_s2", "weatherCityS2", weatherCityS2));
             mColorDetailBeans.add(new ColorDetailBean("样式2导航HUD引导距离", "navi_hud_distance_s2", "naviHudDistanceS2", naviHudDistanceS2));
             mColorDetailBeans.add(new ColorDetailBean("样式2导航HUD引导描述", "navi_hud_road_s2", "naviHudRoadS2", naviHudRoadS2));
@@ -179,7 +179,7 @@ public class ColorBean {
             mColorDetailBeans.add(new ColorDetailBean("样式3时钟日期", "time_date_s3", "clockDateS3", clockDateS3));
             mColorDetailBeans.add(new ColorDetailBean("样式3时钟星期", "time_week_s3", "clockWeekS3", clockWeekS3));
             mColorDetailBeans.add(new ColorDetailBean("样式3天气温度", "weather_temp_color_s3", "weatherTempS3", weatherTempS3));
-            mColorDetailBeans.add(new ColorDetailBean("样式3天气描述", "weather_city_color_new_s3", "weatherDescS3", weatherDescS3));
+            mColorDetailBeans.add(new ColorDetailBean("样式3天气描述", "weather_desc_color_s3", "weatherDescS3", weatherDescS3));
             mColorDetailBeans.add(new ColorDetailBean("样式3天气城市名称", "weather_city_color_new_s3", "weatherCityS3", weatherCityS3));
             mColorDetailBeans.add(new ColorDetailBean("样式3歌曲名称", "music_info_name_color_s3", "musicNameS3", musicNameS3));
             mColorDetailBeans.add(new ColorDetailBean("样式3歌手名称", "music_info_singer_color_s3", "musicSingerS3", musicSingerS3));

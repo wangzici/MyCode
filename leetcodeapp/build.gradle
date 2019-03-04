@@ -34,3 +34,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':MyLeetCode')
 }
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
