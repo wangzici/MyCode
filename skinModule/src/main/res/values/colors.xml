@@ -144,6 +144,10 @@
   <color name="launcher_color_radio_classify_s1">#FF0000</color>  
   <color name="launcher_color_radio_classify_s2">#FF0000</color>  
   <color name="launcher_color_radio_classify_s3">#FF0000</color>  
+  <color name="launcher_color_radio_classify_pressed">#66ffffff</color>  
+  <color name="launcher_color_radio_classify_pressed_s1">#66ffffff</color>  
+  <color name="launcher_color_radio_classify_pressed_s2">#66ffffff</color>  
+  <color name="launcher_color_radio_classify_pressed_s3">#66ffffff</color>  
   <color name="launcher_color_radio_name">#FF0000</color>  
   <color name="launcher_color_radio_name_s1">#FF0000</color>  
   <color name="launcher_color_radio_name_s2">#FF0000</color>  
