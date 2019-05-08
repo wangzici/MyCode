@@ -5,6 +5,8 @@ import com.kyrie.myleetcode.model.ListNode;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
@@ -148,5 +150,10 @@ public class ExampleUnitTest {
     public void leetcodet198() {
         assertEquals(2, LeetCodeUtils.leetcode198(new int[]{1,2}));
         assertEquals(4, LeetCodeUtils.leetcode198(new int[]{2,1,1,2}));
+    }
+
+    @Test
+    public void testQuickSort(){
+        assertEquals(true , Arrays.equals(new int[]{0, 8, 11, 18, 23, 46}, LeetCodeUtils.quickSort(new int[]{23, 46, 0, 8, 11, 18}, 0, 5)));
     }
 }

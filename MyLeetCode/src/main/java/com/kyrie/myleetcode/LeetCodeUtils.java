@@ -933,4 +933,45 @@ public class LeetCodeUtils {
         }
         return results[n - 1];
     }
+
+    /**
+     * 快速排序实现
+     */
+    public static int[] quickSort(int[] nums,int left,int right) {
+        //由于是递归，所以判断条件不能忘
+        if (left < right) {
+            //首先一次快速排序，并得到成功的index
+            int index = getIndex(nums, left, right);
+            quickSort(nums, left, index - 1);
+            quickSort(nums, index + 1, right);
+        }
+        return nums;
+    }
+
+    private static int getIndex(int[] nums,int left,int right) {
+        int cur = nums[left];
+        while (left < right) {
+            while (left < right && nums[right] >= cur) {
+                right--;
+            }
+            nums[left] = nums[right];
+            printArray(nums);
+            while (left < right && nums[left] <= cur) {
+                left++;
+            }
+            nums[right] = nums[left];
+            printArray(nums);
+        }
+        nums[left] = cur;
+        printArray(nums);
+        System.out.println("完成一次遍历");
+        return left;
+    }
+
+    public static void printArray(int[] arrays) {
+        for (int i : arrays) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
 }
