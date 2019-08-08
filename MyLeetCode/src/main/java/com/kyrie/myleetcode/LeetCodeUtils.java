@@ -934,6 +934,30 @@ public class LeetCodeUtils {
         return results[n - 1];
     }
 
+    public static boolean leetcode36(char[][] board){
+        int[] lines = new int[9];
+        int[] columns = new int[9];
+        int[] boxes = new int[9];
+        for (int n = 0; n < 9; n++) {
+            lines[n] = 0;
+            columns[n] = 0;
+            boxes[n] = 0;
+        }
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                char cur = board[i][j];
+                if(cur == '.') continue;
+                int curV = 1 << (cur - '0');
+                int boxIndex = (i/3)*3 + j/3;
+                if((curV & (lines[i] | columns[j] | boxes[boxIndex])) != 0) return false;
+                lines[i] |= curV;
+                columns[j] |= curV;
+                boxes[boxIndex] |= curV;
+            }
+        }
+        return true;
+    }
+
     /**
      * 快速排序实现
      */
