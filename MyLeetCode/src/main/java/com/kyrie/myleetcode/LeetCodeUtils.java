@@ -958,6 +958,39 @@ public class LeetCodeUtils {
         return true;
     }
 
+    public static void leetcode48(int[][] matrix) {
+        //两种循环方式不同，不过大致意思都是一样的
+/*         int n = matrix.length;
+         for (int i = 0; i < n/2; i++) {
+             for (int j = i; j < n-1-i; j++) {
+                 int temp = matrix[i][j];
+                 int lastRow = i;
+                 int lastCol = j;
+                 for (int k = 0; k < 4; k++) {
+                     if(k == 3){
+                         matrix[lastRow][lastCol] = temp;
+                     }else{
+                         matrix[lastRow][lastCol] = matrix[n-1-lastCol][lastRow];
+                         int x = lastRow;
+                         lastRow = n-1-lastCol;
+                         lastCol = x;
+                     }
+                 }
+             }
+         }*/
+        int n = matrix.length;
+        for (int i = 0; i < (n + 1) / 2; i ++) {
+            for (int j = 0; j < n / 2; j++) {
+                System.out.println("i = "+ i + ";j = " + j);
+                int temp = matrix[n - 1 - j][i];
+                matrix[n - 1 - j][i] = matrix[n - 1 - i][n - j - 1];
+                matrix[n - 1 - i][n - j - 1] = matrix[j][n - 1 -i];
+                matrix[j][n - 1 - i] = matrix[i][j];
+                matrix[i][j] = temp;
+            }
+        }
+    }
+
     /**
      * 快速排序实现
      */
