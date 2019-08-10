@@ -79,9 +79,9 @@ public class LeetCodeUtils {
         do {
             pop = next % 10;
             next = next / 10;
-            if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && pop < -8)) {
+            if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && pop < Integer.MIN_VALUE%10)) {
                 return 0;
-            } else if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && pop > 7)) {
+            } else if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && pop > Integer.MAX_VALUE%10)) {
                 return 0;
             }
             result = result * 10 + pop;
