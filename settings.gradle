@@ -1,1 +1,1 @@
-include ':app', ':myedittext', ':drawlots', ':MyLeetCode', ':leetcodeapp', ':skinModule', ':draggerstudy'
+include ':app', ':myedittext',  ':MyLeetCode', ':leetcodeapp',/*':drawlots', ':skinModule',*/ ':draggerstudy'

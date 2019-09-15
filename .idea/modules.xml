@@ -6,10 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/MyLeetCode/MyLeetCode.iml" filepath="$PROJECT_DIR$/MyLeetCode/MyLeetCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/draggerstudy/draggerstudy.iml" filepath="$PROJECT_DIR$/draggerstudy/draggerstudy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/drawlots/drawlots.iml" filepath="$PROJECT_DIR$/drawlots/drawlots.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeapp/leetcodeapp.iml" filepath="$PROJECT_DIR$/leetcodeapp/leetcodeapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/myedittext/myedittext.iml" filepath="$PROJECT_DIR$/myedittext/myedittext.iml" />
-      <module fileurl="file://$PROJECT_DIR$/skinModule/skinModule.iml" filepath="$PROJECT_DIR$/skinModule/skinModule.iml" />
     </modules>
   </component>
 </project>

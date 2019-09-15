@@ -5,10 +5,13 @@ import android.os.Looper;
 
 import com.wzt.draggerstudy.view.ILoginView;
 
+import javax.inject.Inject;
+
 public class LoginPresenterImpl implements ILoginPresenter {
     private ILoginView mLoginView;
     private Handler mUiHandler = new Handler(Looper.getMainLooper());
 
+    @Inject
     public LoginPresenterImpl(ILoginView loginView) {
         mLoginView = loginView;
     }

@@ -7,12 +7,17 @@ import android.widget.TextView;
 
 import com.wzt.draggerstudy.login.ILoginPresenter;
 import com.wzt.draggerstudy.login.LoginPresenterImpl;
+import com.wzt.draggerstudy.view.DaggerMainComponent;
 import com.wzt.draggerstudy.view.ILoginView;
+import com.wzt.draggerstudy.view.ViewModule;
+
+import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements ILoginView, View.OnClickListener {
 
     private TextView mTextView;
-    private ILoginPresenter mLogin;
+    @Inject
+    LoginPresenterImpl mLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +26,11 @@ public class MainActivity extends AppCompatActivity implements ILoginView, View.
         mTextView = findViewById(R.id.tv);
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
-        mLogin = new LoginPresenterImpl(this);
+//        mLogin = new LoginPresenterImpl(this);
+        DaggerMainComponent.builder()
+                .viewModule(new ViewModule(this))
+                .build()
+                .inject(this);
     }
 
     @Override
